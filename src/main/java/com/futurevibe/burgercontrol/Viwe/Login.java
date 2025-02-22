@@ -1,46 +1,61 @@
 package com.futurevibe.burgercontrol.Viwe;
 
-import com.futurevibe.burgercontrol.Componentes.JpanelArredondado;
+import com.futurevibe.burgercontrol.Componentes.GradientePanel;
+import javax.swing.ImageIcon;
+import javax.swing.UIManager;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GradientPaint;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+import javax.swing.BorderFactory;
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Point;
+import javax.swing.JToolTip;
+import javax.swing.Popup;
+import javax.swing.PopupFactory;
+import javax.swing.SwingUtilities;
+import javax.swing.Timer;
+import com.futurevibe.burgercontrol.Componentes.JButtonRedondo;
+import java.awt.Cursor;
 
-/**
- *
- * @author MadaraX4
- */
 public class Login extends javax.swing.JFrame {
 
     public Login() {
         initComponents();
-        
+        SwingUtilities.invokeLater(() -> jpFundo.requestFocusInWindow());
+        campoLogin();
+        campoPassword();
+        btnLogin.setBackground(Color.decode("#4c2c17"));
+        lblRecoverPassword.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        btnFechar.setContentAreaFilled(false);
+        btnFechar.setBorder(null);
+        try {
+            ImageIcon icon = new ImageIcon("src/main/java/com/futurevibe/burgercontrol/img/logo.png");
+            lblLogo.setIcon(icon);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            ImageIcon iconFechar = new ImageIcon("src/main/java/com/futurevibe/burgercontrol/img/fechar.png");
+            btnFechar.setIcon(iconFechar);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
-    
-    class GradientePanel1 extends JPanel {
 
-    private Color color1;
-    private Color color2;
-
-    
-    protected void paintComponent(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        int widht = getWidth();
-        int height = getHeight();
-        
-        Color color1 = new Color(234,135,26);
-        Color color2 = new Color(216,68,19);
-        GradientPaint gp = new GradientPaint(0,0, color1, 180, height, color2);
-        g2d.setPaint(gp);
-        g2d.fillRect(0,0, widht, height);
+    protected void campoLogin() {
+        jpFundo.setOpaque(false);
+        txtUser.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.decode("#4c2c17")));
+        txtUser.setOpaque(false);
+        txtUser.setCaretColor(Color.decode("#4c2c17"));
     }
-}
 
-    
-   
+    protected void campoPassword() {
+        jpFundo.setOpaque(false);
+        jpPassword.setOpaque(false);
+        jpPassword.setBorder(BorderFactory.createMatteBorder(0, 0, 3, 0, Color.decode("#4c2c17")));
+        jpPassword.setCaretColor(Color.decode("#4c2c17"));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,89 +66,178 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        painelFundo = new GradientePanel1();
-        painelLogin = new JpanelArredondado(50);
+        jpFundo = new GradientePanel();
+        lblLogo = new javax.swing.JLabel();
+        txtUser = new javax.swing.JTextField();
+        jpPassword = new javax.swing.JPasswordField();
+        btnLogin = new JButtonRedondo();
+        lblRecoverPassword = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        painelLogin.setBackground(new java.awt.Color(255, 0, 153));
+        txtUser.setBackground(jpFundo.getBackground());
+        txtUser.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        txtUser.setForeground(new java.awt.Color(255, 255, 255));
+        txtUser.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtUser.setText("Usuario");
+        txtUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 102), null, null));
+        txtUser.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtUserFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtUserFocusLost(evt);
+            }
+        });
 
-        javax.swing.GroupLayout painelFundoLayout = new javax.swing.GroupLayout(painelFundo);
-        painelFundo.setLayout(painelFundoLayout);
-        painelFundoLayout.setHorizontalGroup(
-            painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFundoLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+        jpPassword.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jpPassword.setForeground(new java.awt.Color(255, 255, 255));
+        jpPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jpPassword.setText("senha");
+        jpPassword.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jpPasswordFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jpPasswordFocusLost(evt);
+            }
+        });
+
+        btnLogin.setBackground(new java.awt.Color(0, 51, 204));
+        btnLogin.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("LOGIN");
+
+        lblRecoverPassword.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
+        lblRecoverPassword.setForeground(new java.awt.Color(255, 255, 255));
+        lblRecoverPassword.setText("<html><u>Esqueci a Senha</u></html>");
+
+        btnFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFecharActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jpFundoLayout = new javax.swing.GroupLayout(jpFundo);
+        jpFundo.setLayout(jpFundoLayout);
+        jpFundoLayout.setHorizontalGroup(
+            jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFundoLayout.createSequentialGroup()
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpFundoLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(jpPassword)))
+                    .addGroup(jpFundoLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpFundoLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(lblRecoverPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpFundoLayout.createSequentialGroup()
+                .addGap(0, 32, Short.MAX_VALUE)
+                .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        painelFundoLayout.setVerticalGroup(
-            painelFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(painelFundoLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(painelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+        jpFundoLayout.setVerticalGroup(
+            jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpFundoLayout.createSequentialGroup()
+                .addGroup(jpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpFundoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jpPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblRecoverPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFundo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(painelFundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        txtUser.setOpaque(false);
+
+        getContentPane().add(jpFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 410));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtUserFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusGained
+        if (txtUser.getText().equals("Usuario")) {
+            txtUser.setText("");
+            txtUser.setForeground(Color.decode("#4c2c17"));
+        }
+    }//GEN-LAST:event_txtUserFocusGained
+
+    private void txtUserFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtUserFocusLost
+        if (txtUser.getText().equals("")) {
+            txtUser.setText("Usuario");
+            txtUser.setForeground(new Color(255, 255, 255));
+        }
+    }//GEN-LAST:event_txtUserFocusLost
+
+    private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
+        jpPassword.setText("");
+    }//GEN-LAST:event_jpPasswordFocusGained
+
+    private void jpPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusLost
+        if (new String(jpPassword.getPassword()).isEmpty()) {
+            JToolTip tootip = new JToolTip();
+            tootip.setTipText("Ensira uma senha");
+
+            PopupFactory popupFactory = PopupFactory.getSharedInstance();
+            Point location = jpPassword.getLocationOnScreen();
+            Popup popup = popupFactory.getPopup(jpPassword, tootip, location.x, location.y + jpPassword.getHeight());
+            popup.show();
+
+            Timer timer = new Timer(5000, event -> popup.hide());
+            timer.setRepeats(false);
+            timer.start();
+        }
+    }//GEN-LAST:event_jpPasswordFocusLost
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnFecharActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    //private void initComponents(){
-    // setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    // setSize(400, 400);
-    // setLocationRelativeTo(null);
-    //}
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
-
+                UIManager.put("TextComponent.arc", 100);
             }
         });
 
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel painelFundo;
-    private javax.swing.JPanel painelLogin;
+    private javax.swing.JButton btnFechar;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JPanel jpFundo;
+    private javax.swing.JPasswordField jpPassword;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblRecoverPassword;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

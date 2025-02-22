@@ -24,11 +24,13 @@
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
-            <version>3.5.3</version>
-            <scope>runtime</scope>
+            <version>3.5.4</version>
+            <type>jar</type>
         </dependency>
-
-        
-
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE190</version>
+        </dependency>
     </dependencies>
 </project>

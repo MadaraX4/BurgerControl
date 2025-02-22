@@ -11,16 +11,18 @@ public class GradientePanel extends JPanel {
     private Color color1;
     private Color color2;
 
-    
+    public GradientePanel(){
+        setOpaque(false);
+    }
      @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         int widht = getWidth();
         int height = getHeight();
         
-        Color color1 = new Color(234,135,26);
-        Color color2 = new Color(216,68,19);
-        GradientPaint gp = new GradientPaint(0,0, color1, 180, height, color2);
+        Color color1 = Color.decode("#60392a");
+        Color color2 = Color.decode("#e5d1ae");
+        GradientPaint gp = new GradientPaint(0,0, color1, 130, height, color2);
         g2d.setPaint(gp);
         g2d.fillRect(0,0, widht, height);
     }
