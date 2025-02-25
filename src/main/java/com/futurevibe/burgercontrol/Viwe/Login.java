@@ -13,7 +13,9 @@ import javax.swing.PopupFactory;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 import com.futurevibe.burgercontrol.Componentes.JButtonRedondo;
+import com.futurevibe.burgercontrol.Controler.ControlerLogin;
 import java.awt.Cursor;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -110,6 +112,11 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         lblRecoverPassword.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 12)); // NOI18N
         lblRecoverPassword.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,6 +195,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jpPasswordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusGained
         jpPassword.setText("");
+        jpPassword.setForeground(Color.decode("#4c2c17"));
     }//GEN-LAST:event_jpPasswordFocusGained
 
     private void jpPasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jpPasswordFocusLost
@@ -209,6 +217,17 @@ public class Login extends javax.swing.JFrame {
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnFecharActionPerformed
+
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        ControlerLogin login = new ControlerLogin();
+        login.efetuarLogin(txtUser);
+        boolean acesso = login.logar(txtUser, jpPassword);
+        if (acesso == true) {
+            TelaPrincipal telaPrincpal = new TelaPrincipal();
+            this.dispose();
+            telaPrincpal.setVisible(true);
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
      * @param args the command line arguments
