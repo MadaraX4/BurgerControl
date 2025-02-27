@@ -15,6 +15,7 @@ import javax.swing.Timer;
 import com.futurevibe.burgercontrol.Componentes.JButtonRedondo;
 import com.futurevibe.burgercontrol.Controler.ControlerLogin;
 import java.awt.Cursor;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
@@ -80,6 +81,12 @@ public class Login extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jpFundo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpFundoKeyPressed(evt);
+            }
+        });
+
         txtUser.setBackground(jpFundo.getBackground());
         txtUser.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         txtUser.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,6 +112,11 @@ public class Login extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jpPasswordFocusLost(evt);
+            }
+        });
+        jpPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpPasswordKeyPressed(evt);
             }
         });
 
@@ -228,6 +240,23 @@ public class Login extends javax.swing.JFrame {
             telaPrincpal.setVisible(true);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void jpFundoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpFundoKeyPressed
+        
+    }//GEN-LAST:event_jpFundoKeyPressed
+
+    private void jpPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpPasswordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            ControlerLogin login = new ControlerLogin();
+            login.efetuarLogin(txtUser);
+            boolean acesso = login.logar(txtUser, jpPassword);
+            if (acesso == true) {
+                TelaPrincipal telaPrincpal = new TelaPrincipal();
+                this.dispose();
+                telaPrincpal.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jpPasswordKeyPressed
 
     /**
      * @param args the command line arguments

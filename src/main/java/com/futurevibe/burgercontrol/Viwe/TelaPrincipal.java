@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.futurevibe.burgercontrol.Viwe;
+
+import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 /**
  *
@@ -15,6 +16,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+        
+        pFundo.setBackground(Color.decode("#4c2c17"));
+        jdpFundo.setBackground(Color.decode("#4c2c17"));
+        
     }
 
     /**
@@ -26,20 +31,129 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        pFundo = new javax.swing.JPanel();
+        jdpFundo = new javax.swing.JDesktopPane();
+        jmbMenu = new javax.swing.JMenuBar();
+        jmMesas = new javax.swing.JMenu();
+        jmiTdsMesa = new javax.swing.JMenuItem();
+        jmiNewMesa = new javax.swing.JMenuItem();
+        jmPedidos = new javax.swing.JMenu();
+        jmiNewPedido = new javax.swing.JMenuItem();
+        jmiTodosOsPedidos = new javax.swing.JMenuItem();
+        jmDelivery = new javax.swing.JMenu();
+        jmiNooDeliery = new javax.swing.JMenuItem();
+        jmiTodosOsDelierys = new javax.swing.JMenuItem();
+        jmLanchesEbebidas = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jmCaixa = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jmiCaixaTotal = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        pFundo.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jdpFundoLayout = new javax.swing.GroupLayout(jdpFundo);
+        jdpFundo.setLayout(jdpFundoLayout);
+        jdpFundoLayout.setHorizontalGroup(
+            jdpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 779, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jdpFundoLayout.setVerticalGroup(
+            jdpFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 469, Short.MAX_VALUE)
         );
+
+        javax.swing.GroupLayout pFundoLayout = new javax.swing.GroupLayout(pFundo);
+        pFundo.setLayout(pFundoLayout);
+        pFundoLayout.setHorizontalGroup(
+            pFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jdpFundo)
+        );
+        pFundoLayout.setVerticalGroup(
+            pFundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jdpFundo)
+        );
+
+        getContentPane().add(pFundo);
+
+        jmbMenu.setForeground(new java.awt.Color(0, 0, 0));
+
+        jmMesas.setText("Mesas");
+        jmMesas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jmiTdsMesa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiTdsMesa.setText("Todas as Mesas");
+        jmMesas.add(jmiTdsMesa);
+
+        jmiNewMesa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiNewMesa.setText("Nova Mesa");
+        jmMesas.add(jmiNewMesa);
+
+        jmbMenu.add(jmMesas);
+
+        jmPedidos.setText("Pedidos");
+        jmPedidos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jmiNewPedido.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiNewPedido.setText("Novo Pedido");
+        jmPedidos.add(jmiNewPedido);
+
+        jmiTodosOsPedidos.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiTodosOsPedidos.setText("Todos os Pedidos");
+        jmPedidos.add(jmiTodosOsPedidos);
+
+        jmbMenu.add(jmPedidos);
+
+        jmDelivery.setText("Delivery");
+        jmDelivery.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jmiNooDeliery.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiNooDeliery.setText("Novo Pedido");
+        jmDelivery.add(jmiNooDeliery);
+
+        jmiTodosOsDelierys.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiTodosOsDelierys.setText("Todos os Pedidos");
+        jmDelivery.add(jmiTodosOsDelierys);
+
+        jmbMenu.add(jmDelivery);
+
+        jmLanchesEbebidas.setText("Lanches e Bebidas");
+        jmLanchesEbebidas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem3.setText("Cadastrar");
+        jmLanchesEbebidas.add(jMenuItem3);
+
+        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem4.setText("Montar Lanche");
+        jmLanchesEbebidas.add(jMenuItem4);
+
+        jmbMenu.add(jmLanchesEbebidas);
+
+        jmCaixa.setText("Caixa");
+        jmCaixa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+
+        jMenuItem1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem1.setText("Caixa do Dia");
+        jmCaixa.add(jMenuItem1);
+
+        jmiCaixaTotal.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmiCaixaTotal.setText("Caixa Total");
+        jmCaixa.add(jmiCaixaTotal);
+
+        jmbMenu.add(jmCaixa);
+
+        setJMenuBar(jmbMenu);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -47,27 +161,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -78,5 +176,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JDesktopPane jdpFundo;
+    private javax.swing.JMenu jmCaixa;
+    private javax.swing.JMenu jmDelivery;
+    private javax.swing.JMenu jmLanchesEbebidas;
+    private javax.swing.JMenu jmMesas;
+    private javax.swing.JMenu jmPedidos;
+    private javax.swing.JMenuBar jmbMenu;
+    private javax.swing.JMenuItem jmiCaixaTotal;
+    private javax.swing.JMenuItem jmiNewMesa;
+    private javax.swing.JMenuItem jmiNewPedido;
+    private javax.swing.JMenuItem jmiNooDeliery;
+    private javax.swing.JMenuItem jmiTdsMesa;
+    private javax.swing.JMenuItem jmiTodosOsDelierys;
+    private javax.swing.JMenuItem jmiTodosOsPedidos;
+    private javax.swing.JPanel pFundo;
     // End of variables declaration//GEN-END:variables
 }
