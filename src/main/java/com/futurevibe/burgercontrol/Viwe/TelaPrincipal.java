@@ -87,9 +87,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jmMesas.setText("Mesas");
         jmMesas.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jmMesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmMesasActionPerformed(evt);
+            }
+        });
 
         jmiTdsMesa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jmiTdsMesa.setText("Todas as Mesas");
+        jmiTdsMesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiTdsMesaActionPerformed(evt);
+            }
+        });
         jmMesas.add(jmiTdsMesa);
 
         jmiNewMesa.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -155,6 +165,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jmMesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmMesasActionPerformed
+       
+    }//GEN-LAST:event_jmMesasActionPerformed
+
+    private void jmiTdsMesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiTdsMesaActionPerformed
+       TodasAsMesas tdsMesas = new TodasAsMesas();
+       jdpFundo.add(tdsMesas);
+       tdsMesas.setVisible(true);
+    }//GEN-LAST:event_jmiTdsMesaActionPerformed
 
     /**
      * @param args the command line arguments
